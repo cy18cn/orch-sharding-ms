@@ -1,0 +1,105 @@
+server:
+  contextPath:
+  port: 8180
+#spring.application.index=true
+spring:
+  shardingsphere:
+    props:
+      sql.show: true
+    datasource:
+      ds:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: test
+        type: com.zaxxer.hikari.HikariDataSource
+        jdbcUrl: jdbc:mysql://127.0.0.1:3306/sharding_01?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Hongkong
+        username: test
+      ds0:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: test
+        type: com.zaxxer.hikari.HikariDataSource
+        jdbcUrl: jdbc:mysql://127.0.0.1:3306/sharding_02?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Hongkong
+        username: test
+      ds1:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: test
+        type: com.zaxxer.hikari.HikariDataSource
+        jdbcUrl: jdbc:mysql://127.0.0.1:3306/sharding_03?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Hongkong
+        username: test
+      names: ds,ds0,ds1
+    orchestration:
+      name: orchestration_ds
+      overwrite: true
+      registry:
+        max-retries: 5
+        retry-interval-milliseconds: 1000
+        namespace: orchestration
+        server-lists: 10.35.22.61:2181,10.35.22.61:2182,10.35.22.61:2183
+        type: zookeeper
+    masterslave:
+      name: sharding
+      load-balance-algorithm-type: round_robin
+      master-data-source-name: ds
+      slave-data-source-names:
+      - ds0
+      - ds1
+#      binding-tables: t_order,t_order_item
+#      broadcast-tables: t_config
+#      default-data-source-name: ds
+#      default-database-strategy:
+#        inline:
+#          algorithm-expression: ds$->{user_id % 2}
+#          sharding-column: user_id
+#      tables:
+#        t_order:
+#          actual-data-nodes: ds$->{0..1}.t_order$->{0..1}
+#          key-generator:
+#            column: order_id
+#          table-strategy:
+#            inline:
+#              algorithm-expression: t_order$->{order_id % 2}
+#              sharding-column: order_id
+#        t_order_item:
+#          actual-data-nodes: ds$->{0..1}.t_order_item$->{0..1}
+#          key-generator:
+#            column: order_item_id
+#          table-strategy:
+#            inline:
+#              algorithm-expression: t_order_item$->{order_id % 2}
+#              sharding-column: order_id
+  elasticsearch:
+    rest:
+      username:
+      password:
+      uris: http://10.35.22.61:9200
+  application.name: test
+  jackson.time-zone: GMT+8
+  http.encoding:
+    charset: UTF-8
+    enabled: true
+    force: true
+mapper:
+#  mappers:
+#    - tk.mybatis.mapper.common.Mapper
+  notEmpty: true
+  safeDelete: true
+  safeUpdate: true
+  checkExampleEntityClass: true
+  IDENTITY: MYSQL
+# mybatis configs
+mybatis:
+  type-aliases-package: com.airparking.cloud.ecenter.price.domain
+  type-handlers-package: com.airparking.cloud.ecenter.price.domain.typehandler
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 30
+# page handler configs
+pagehelper:
+  helperDialect: mysql
+  # page size is 0, select all will not pages
+  # pageSizeZero: true
+  # if true, pageNum < 1 return first page, pageNum > totalPage return last page
+  reasonable: false
+  # support mapper interface page parameters
+  supportMethodsArguments: true
+  params: count=countSql
