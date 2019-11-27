@@ -32,7 +32,7 @@ def add(l):
 
 
 def get(l):
-    l.client.get("/test/get?id=" + random.randint(1, 10))
+    l.client.get("/test/get?id=" + str(random.randint(1, 10)))
 
 
 def create_link_str(parameters):
@@ -59,17 +59,18 @@ def sign(api_secret_key, parameters):
     return hmac.new(api_secret_key, str(create_link_str(parameters)).encode("'utf-8'"), 'MD5').hexdigest()
 
 
-class EcenterBehavior(TaskSet):
-    tasks = {add: 1, get: 2}
+class ShardingTestBehavior(TaskSet):
+    tasks = {get: 2, add: 1}
 
     def on_start(self):
-        login(self)
+        # login(self)
+        pass
 
     def on_stop(self):
         pass
 
 
-class EcenterApi(HttpLocust):
-    task_set = EcenterBehavior
+class ShardingTest(HttpLocust):
+    task_set = ShardingTestBehavior
     min_wait = 5000
     max_wait = 9000
