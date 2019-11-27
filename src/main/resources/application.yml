@@ -9,21 +9,21 @@ spring:
     datasource:
       ds:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        password: test
+        password: 123456
         type: com.zaxxer.hikari.HikariDataSource
-        jdbcUrl: jdbc:mysql://127.0.0.1:3306/sharding_01?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Hongkong
+        jdbcUrl: jdbc:mysql://10.35.22.61:3308/sharding?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Hongkong
         username: test
       ds0:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        password: test
+        password: 123456
         type: com.zaxxer.hikari.HikariDataSource
-        jdbcUrl: jdbc:mysql://127.0.0.1:3306/sharding_02?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Hongkong
+        jdbcUrl: jdbc:mysql://10.35.22.61:3309/sharding?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Hongkong
         username: test
       ds1:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        password: test
+        password: 123456
         type: com.zaxxer.hikari.HikariDataSource
-        jdbcUrl: jdbc:mysql://127.0.0.1:3306/sharding_03?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Hongkong
+        jdbcUrl: jdbc:mysql://10.35.22.61:3310/sharding?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Hongkong
         username: test
       names: ds,ds0,ds1
     orchestration:

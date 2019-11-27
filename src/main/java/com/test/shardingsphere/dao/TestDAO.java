@@ -16,10 +16,10 @@
 package com.test.shardingsphere.dao;
 
 import com.airparking.cloud.common.dao.AbstractDAO;
-import com.test.shardingsphere.entity.ClazzS;
+import com.test.shardingsphere.entity.Test;
 
 /**
  * Created by ryan on 2019-04-04 17:32:45.
  */
-public interface TestDAO extends AbstractDAO<ClazzS, Long> {
+public interface TestDAO extends AbstractDAO<Test, Long> {
 }

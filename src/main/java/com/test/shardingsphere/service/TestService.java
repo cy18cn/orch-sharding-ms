@@ -16,11 +16,11 @@
 package com.test.shardingsphere.service;
 
 import com.airparking.cloud.common.AbstractService;
-import com.test.shardingsphere.entity.ClazzS;
+import com.test.shardingsphere.entity.Test;
 
 /**
  * Created by ryan on 2019-04-04 17:32:45.
  */
-public interface TestService extends AbstractService<ClazzS, Long> {
-    Integer add(ClazzS object);
+public interface TestService extends AbstractService<Test, Long> {
+    Integer add(Test object);
 }

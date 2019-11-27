@@ -17,7 +17,7 @@ package com.test.shardingsphere.controller;
 
 import com.airparking.cloud.common.AbstractController;
 import com.alibaba.fastjson.JSONObject;
-import com.test.shardingsphere.entity.ClazzS;
+import com.test.shardingsphere.entity.Test;
 import com.test.shardingsphere.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,12 +36,12 @@ public class TestController extends AbstractController {
 
     @RequestMapping("get")
     @ResponseBody
-    public ClazzS get(@RequestParam("id") Long id) {
+    public Test get(@RequestParam("id") Long id) {
         return this.testService.get(id);
     }
 
     @RequestMapping("add")
     public Integer add(@RequestParam("body") String pcPriceJson) {
-        return this.testService.add(JSONObject.parseObject(pcPriceJson, ClazzS.class));
+        return this.testService.add(JSONObject.parseObject(pcPriceJson, Test.class));
     }
 }

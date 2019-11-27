@@ -15,12 +15,12 @@
  */
 package com.test.shardingsphere.mapper;
 
-import com.test.shardingsphere.entity.ClazzS;
+import com.test.shardingsphere.entity.Test;
 import tk.mybatis.mapper.common.Mapper;
 
 /**
  * Created by ryan on 2019-04-04 17:32:45.
  */
 @org.apache.ibatis.annotations.Mapper
-public interface TestMapper extends Mapper<ClazzS> {
+public interface TestMapper extends Mapper<Test> {
 }

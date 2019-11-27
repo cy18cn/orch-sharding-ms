@@ -8,8 +8,8 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Data
-@Table(name = "s")
-public class ClazzS implements Serializable {
+@Table(name = "test")
+public class Test implements Serializable {
     // id
     @Id
     private Long id;
