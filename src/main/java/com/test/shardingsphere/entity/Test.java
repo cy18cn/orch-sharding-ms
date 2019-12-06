@@ -1,22 +1,26 @@
 package com.test.shardingsphere.entity;
 
-import java.io.Serializable;
-import java.util.Date;
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import lombok.Data;
+import java.io.Serializable;
 
 @Data
-@Table(name = "test")
+@Table(name = "sbtest1")
 public class Test implements Serializable {
     // id
     @Id
     private Long id;
     // parkNo
-    @Column(name = "content")
-    private String content;
+    @Column(name = "k")
+    private Integer k;
     // 长租开始时间
-    @Column(name = "created_at")
-    private Date createdAt;
+    @Column(name = "c")
+    private String c;
+
+    // 长租开始时间
+    @Column(name = "pad")
+    private String pad;
 }

@@ -20,10 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.test.shardingsphere.entity.Test;
 import com.test.shardingsphere.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by ryan on 2019-04-04 17:32:45.
@@ -41,7 +38,7 @@ public class TestController extends AbstractController {
     }
 
     @RequestMapping("add")
-    public Integer add(@RequestParam("body") String pcPriceJson) {
-        return this.testService.add(JSONObject.parseObject(pcPriceJson, Test.class));
+    public Integer add(@RequestBody Test test) {
+        return this.testService.add(test);
     }
 }
