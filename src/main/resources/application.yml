@@ -4,9 +4,9 @@ server:
 #spring.application.index=true
 spring:
   shardingsphere:
-    enabled: false  # enable shardingsphere, default is true
+    enabled: true  # enable shardingsphere, default is true
     props:
-      sql.show: false
+      sql.show: true
     datasource:
       ds:
         driver-class-name: com.mysql.cj.jdbc.Driver
@@ -14,24 +14,24 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         jdbcUrl: jdbc:mysql://10.35.22.61:3308/sbtest?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Hongkong&useServerPrepStmts=true&cachePrepStmts=true
         username: root
-        maxPoolSize: 10
-        minIdle: 10
+        maximumPoolSize: 10
+        minimumIdle: 10
       ds0:
         driver-class-name: com.mysql.cj.jdbc.Driver
         password: 123456
         type: com.zaxxer.hikari.HikariDataSource
         jdbcUrl: jdbc:mysql://10.35.22.61:3309/sbtest?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Hongkong&useServerPrepStmts=true&cachePrepStmts=true
         username: root
-        maxPoolSize: 20
-        minIdle: 20
+        maximumPoolSize: 10
+        minimumIdle: 10
       ds1:
         driver-class-name: com.mysql.cj.jdbc.Driver
         password: 123456
         type: com.zaxxer.hikari.HikariDataSource
         jdbcUrl: jdbc:mysql://10.35.22.61:3310/sbtest?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Hongkong&useServerPrepStmts=true&cachePrepStmts=true
         username: root
-        maxPoolSize: 20
-        minIdle: 20
+        maximumPoolSize: 10
+        minimumIdle: 10
       names: ds,ds0,ds1
     orchestration:
       name: orchestration_ds

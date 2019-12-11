@@ -23,7 +23,7 @@ public class TestServiceImpl extends AbstractServiceImpl<Test, Long> implements 
     @Transactional
     public Integer add(Test test) {
         this.testDAO.insertSelective(test);
-//        throw new RuntimeException();
-        return 1;
+        throw new RuntimeException();
+//        return 1;
     }
 }
