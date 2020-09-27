@@ -22,4 +22,5 @@ import com.test.shardingsphere.entity.Test;
  * Created by ryan on 2019-04-04 17:32:45.
  */
 public interface TestDAO extends AbstractDAO<Test, Long> {
+    Test getById(Long id);
 }

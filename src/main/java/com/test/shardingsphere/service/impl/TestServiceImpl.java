@@ -26,4 +26,9 @@ public class TestServiceImpl extends AbstractServiceImpl<Test, Long> implements 
         throw new RuntimeException();
 //        return 1;
     }
+
+    @Override
+    public Test getById(Long id) {
+        return this.testDAO.getById(id);
+    }
 }

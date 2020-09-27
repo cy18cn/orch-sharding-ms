@@ -34,7 +34,7 @@ public class TestController extends AbstractController {
     @RequestMapping("get")
     @ResponseBody
     public Test get(@RequestParam("id") Long id) {
-        return this.testService.get(id);
+        return this.testService.getById(id);
     }
 
     @RequestMapping("add")

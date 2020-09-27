@@ -23,4 +23,7 @@ public class Test implements Serializable {
     // 长租开始时间
     @Column(name = "pad")
     private String pad;
+
+    @Column(name = "channel")
+    private Integer channel;
 }

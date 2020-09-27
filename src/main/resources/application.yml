@@ -20,7 +20,7 @@ spring:
         driver-class-name: com.mysql.cj.jdbc.Driver
         password: 123456
         type: com.zaxxer.hikari.HikariDataSource
-        jdbcUrl: jdbc:mysql://10.35.22.61:3309/sbtest?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Hongkong&useServerPrepStmts=true&cachePrepStmts=true
+        jdbcUrl: jdbc:mysql://10.35.22.61:3308/sbtest?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Hongkong&useServerPrepStmts=true&cachePrepStmts=true
         username: root
         maximumPoolSize: 10
         minimumIdle: 10
@@ -28,18 +28,18 @@ spring:
         driver-class-name: com.mysql.cj.jdbc.Driver
         password: 123456
         type: com.zaxxer.hikari.HikariDataSource
-        jdbcUrl: jdbc:mysql://10.35.22.61:3310/sbtest?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Hongkong&useServerPrepStmts=true&cachePrepStmts=true
+        jdbcUrl: jdbc:mysql://10.35.22.61:3308/sbtest?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Hongkong&useServerPrepStmts=true&cachePrepStmts=true
         username: root
         maximumPoolSize: 10
         minimumIdle: 10
       names: ds,ds0,ds1
     orchestration:
-      name: orchestration_ds
+      name: pmc_order
       overwrite: true
       registry:
         max-retries: 5
         retry-interval-milliseconds: 1000
-        namespace: orchestration
+        namespace: pmc
         server-lists: 10.35.22.61:2181,10.35.22.61:2182,10.35.22.61:2183
         type: zookeeper
     masterslave:
@@ -73,6 +73,14 @@ spring:
 #            inline:
 #              algorithm-expression: t_order_item$->{order_id % 2}
 #              sharding-column: order_id
+  datasource:
+    url: jdbc:mysql://rdsc589fmpeqm0c4d895.mysql.rds.aliyuncs.com:3306/airparking?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&autoReconnect=true&useServerPrepStmts=true&cachePrepStmts=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: apdev
+    password: airparking
+    hikari:
+      maximumPoolSize: 20
+      minimumIdle: 20
   elasticsearch:
     rest:
       username:

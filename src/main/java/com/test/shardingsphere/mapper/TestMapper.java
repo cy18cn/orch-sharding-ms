@@ -16,6 +16,9 @@
 package com.test.shardingsphere.mapper;
 
 import com.test.shardingsphere.entity.Test;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.ResultType;
+import org.apache.ibatis.annotations.Select;
 import tk.mybatis.mapper.common.Mapper;
 
 /**
@@ -23,4 +26,7 @@ import tk.mybatis.mapper.common.Mapper;
  */
 @org.apache.ibatis.annotations.Mapper
 public interface TestMapper extends Mapper<Test> {
+    @Select("SELECT id,k,c,pad,channel  FROM sbtest1  WHERE  (id = #{id} and channel = 'null')")
+    @ResultType(Test.class)
+    Test getById(@Param("id") Long id, @Param("channel") Integer channel);
 }

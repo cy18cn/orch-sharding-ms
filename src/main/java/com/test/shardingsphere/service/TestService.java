@@ -23,4 +23,6 @@ import com.test.shardingsphere.entity.Test;
  */
 public interface TestService extends AbstractService<Test, Long> {
     Integer add(Test object);
+
+    Test getById(Long id);
 }
